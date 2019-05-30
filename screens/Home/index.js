@@ -6,7 +6,22 @@ import {SafeAreaView} from 'react-navigation';
 
 
 export default class App extends React.Component {
-  getData(season) {
+  constructor(props) {
+    super(props);
+    this.state = { loading: true };
+  }
+  async componentWillMount() {
+    await Expo.Font.loadAsync({
+      Roboto: require("native-base/Fonts/Roboto.ttf"),
+      Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf"),
+    
+    });
+
+    this.setState({ loading: false });
+  }
+    
+  
+    getData(season) {
     fetch('http://ergast.com/api/f1/' + season + '.json')
       .then((response) => response.json())
       .then((data) => {
@@ -15,10 +30,13 @@ export default class App extends React.Component {
 
   }
 
-
   render() {
+    if (this.state.loading) {
+      return <Expo.AppLoading />;
+    }
     return (
-      <SafeAreaView style={styles.container}>
+    
+        <SafeAreaView style={styles.container}>
         <Seasons
           nomeFuncao={this.getData}
         ></Seasons>

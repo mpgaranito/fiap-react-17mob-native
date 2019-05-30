@@ -1,10 +1,10 @@
 {
-  "devToolsPort": 19002,
+  "devToolsPort": 19003,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 12604,
-  "expoServerNgrokUrl": "https://9g-wh9.anonymous.fiap-react-17mob-native.exp.direct",
-  "packagerNgrokUrl": "https://packager.9g-wh9.anonymous.fiap-react-17mob-native.exp.direct",
-  "ngrokPid": 13104,
+  "packagerPid": 13192,
+  "expoServerNgrokUrl": "https://ve-txe.anonymous.fiap-react-17mob-native.exp.direct",
+  "packagerNgrokUrl": "https://packager.ve-txe.anonymous.fiap-react-17mob-native.exp.direct",
+  "ngrokPid": 9980,
   "webpackServerPort": null
 }
