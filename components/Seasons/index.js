@@ -23,7 +23,7 @@ class Seasons extends PureComponent {
             console.log(year);
             items.push(
                 <Button 
-                onPress = {() => alert(year)}
+                onPress = {() =>  this.props.handleParam(year)}
                     key={ `season-${i}` }>
                     <Text>
                         { year }

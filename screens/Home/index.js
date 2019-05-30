@@ -38,7 +38,7 @@ export default class App extends React.Component {
     
         <SafeAreaView style={styles.container}>
         <Seasons
-          nomeFuncao={this.getData}
+          handleParam={this.getData}
         ></Seasons>
       </SafeAreaView>
     );
