@@ -18,15 +18,15 @@ const AppNavigator = createStackNavigator(
   },
   {
     initialRouteName: 'Home',
-    defaultNavigationOptions: {
-      headerStyle: {
-        backgroundColor: '#333',
-      },
-      headerTintColor: '#fff',
-      headerTitleStyle: {
-        fontWeight: 'bold',
-      },
-    },
+    // defaultNavigationOptions: {
+    //   headerStyle: {
+    //     backgroundColor: '#333',
+    //   },
+    //   headerTintColor: '#fff',
+    //   headerTitleStyle: {
+    //     fontWeight: 'bold',
+    //   },
+    // },
   }
 );
 

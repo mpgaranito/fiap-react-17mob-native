@@ -22,12 +22,14 @@ export default class App extends React.Component {
     
   
     getData(season) {
+      /*
     fetch('http://ergast.com/api/f1/' + season + '.json')
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
       });
-
+*/
+    console.log(season);
   }
 
   render() {
@@ -47,10 +49,18 @@ export default class App extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    borderRadius: 4,
+    borderWidth: 0.5,
+    borderColor: '#d6d7da',
+    flex:1,
+    fontSize: 30,
+  },
+  title: {
+    fontSize: 19,
+    fontWeight: 'bold',
+  },
+  activeTitle: {
+    color: 'red',
   },
 });
 
