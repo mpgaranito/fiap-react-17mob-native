@@ -22,9 +22,9 @@ class Seasons extends PureComponent {
             const year = '20' + (i > 9 ? i : `0${i}`);
             console.log(year);
             items.push(
-                <Button iconLeft transparent primary
+                <Button iconLeft transparent  primary
                     onPress={() => this.props.handleParam(year)}
-                    key={`season-${i}`}>
+                    key={`season-${i}`} style={{backgroundColor:'#fff'}}>
                 
                     <Icon name='checkmark' />
                     <Text>
@@ -41,7 +41,6 @@ class Seasons extends PureComponent {
     render() {
         return (
             <Container>
-                <Header dark><Text>Formula One</Text></Header>
                 <Content >
                     <View style={style.container}>
                         {this.renderSeasons()}
