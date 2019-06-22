@@ -1,6 +1,6 @@
-import React, { PureComponent,Fragment} from 'react';
+import React, { PureComponent} from 'react';
 import { View } from 'react-native';
-import { Container, Content, H1, Button, Icon, Text, Separator, List,ListItem } from 'native-base';
+import { Container, Content, H1, Button, Icon, Text } from 'native-base';
 import style from './style';
 import { Font } from 'expo';
 import { Ionicons } from '@expo/vector-icons';
@@ -18,19 +18,16 @@ class Seasons extends PureComponent {
         let items = [];
         var yearNow= new Date().getFullYear();
        // console.log(yearNow);
-        for (let year = yearNow; year > 2000; year--) {
+        for (let year = 2000; year < yearNow; year++) {
             items.push(
-                <Fragment key={`fragment-${year}`} >
-                <List> 
-                <ListItem iconLeft onPress={() => this.props.handleParam(year)}
-                key={`season-${year}`}>
-                <Icon name='information-circle' />
-                <Text>
-                    {` ${year}`}
-                </Text>
-                </ListItem>
-                </List>
-                </Fragment>
+                <Button iconLeft transparent  dark
+                    onPress={() => this.props.handleParam(year)}
+                    key={`season-${year}`} style={{backgroundColor:'#fff'}}>
+                    <Icon name='information-circle' /> 
+                    <Text>
+                    {year}
+                    </Text>
+                </Button>
             );
         }
         return items;

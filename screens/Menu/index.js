@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import {SafeAreaView} from 'react-navigation';
-
+import Menus from '../../components/Menus';
 
 
 export default class Menu extends React.Component {
@@ -34,7 +34,7 @@ export default class Menu extends React.Component {
     }
     return (
       <SafeAreaView style={styles.container}>
-        <Text>Sou eu  {this.state.season}</Text>
+        <Menus></Menus>
       </SafeAreaView>
     );
   }
