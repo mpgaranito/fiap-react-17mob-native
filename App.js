@@ -1,5 +1,5 @@
 import React from 'react';
-
+import LogoTitle from './components/LogoTitle';
 
 import {
   createStackNavigator,
@@ -26,6 +26,8 @@ const AppNavigator = createStackNavigator(
        headerTitleStyle: {
          fontWeight: 'bold',
         },
+        headerTitle: <LogoTitle />,
+        
     },
   }
 );

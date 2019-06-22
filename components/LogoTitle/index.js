@@ -2,7 +2,7 @@
 import React, { PureComponent } from 'react';
 import { Image, Platform } from 'react-native';
 
-import Logo from '../../assets/l.png';
+import Logo from '../../assets/LogoFiap.png';
 
 export default class LogoTitle extends PureComponent {
   render() {
