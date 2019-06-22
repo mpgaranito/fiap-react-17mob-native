@@ -18,14 +18,14 @@ class Seasons extends PureComponent {
         let items = [];
         var yearNow= new Date().getFullYear();
        // console.log(yearNow);
-        for (let year = yearNow; year > 2000; year--) {
+        for (let year = yearNow-1; year > 2000; year--) {
             items.push(
                 <Fragment key={`fragment-${year}`} >
                 <List> 
-                <ListItem iconLeft onPress={() => this.props.handleParam(year)}
+                <ListItem iconLeft block onPress={() => this.props.handleParam(year)}
                 key={`season-${year}`}>
-                <Icon name='information-circle' />
-                <Text>
+                <Icon name='md-arrow-dropright' />
+                <Text  >
                     {` ${year}`}
                 </Text>
                 </ListItem>

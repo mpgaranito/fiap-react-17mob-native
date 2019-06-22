@@ -1,6 +1,6 @@
 import React, { PureComponent,Fragment} from 'react';
 import { View } from 'react-native';
-import { Container, Content, H1, Button, Icon, Text , Separator} from 'native-base';
+import { Container, Content, H1, Button, Icon, Text , Separator, List,ListItem} from 'native-base';
 import style from './style';
 import { Font } from 'expo';
 import { Ionicons } from '@expo/vector-icons';
@@ -17,18 +17,16 @@ class Menus extends PureComponent {
     renderOptions() {
       return  (
           <List>
-          <ListItem iconLeft block dark
-                   style={{backgroundColor:'#000'}}>
+          <ListItem iconLeft block>
                     <Icon name='car' /> 
                     <Text>
-                        Corridas
+                         {` Corridas`}
                     </Text>
             </ListItem>
-            <ListItem iconLeft block dark
-                   style={{backgroundColor:'#000'}}>
-                    <Icon name='information-circle' /> 
+            <ListItem iconLeft block>
+                    <Icon name='speedometer' /> 
                     <Text>
-                        Pilotos
+                    {` Pilotos`}
                     </Text>
             </ListItem>
             </List>
