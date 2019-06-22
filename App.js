@@ -6,7 +6,8 @@ import {
   createAppContainer,
 } from 'react-navigation'
 
-import HomeScreen from './screens/Home';
+import HomeScreen from './screens/Home'; //Pagina Home
+import MenuScreen from './screens/Menu'; //Segunda Pagina
  
 
 
@@ -14,6 +15,9 @@ const AppNavigator = createStackNavigator(
   {
     Home: {
       screen: HomeScreen,
+    },
+    Menu: {
+      screen: MenuScreen,
     }
   },
   {
