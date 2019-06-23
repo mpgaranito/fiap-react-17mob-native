@@ -10,7 +10,7 @@ import HomeScreen from './screens/Home'; //Pagina Home
 import MenuScreen from './screens/Menu'; //Segunda Pagina
 import RacingDriversScreen from './screens/RacingDrivers'; //Pagina de Pilotos
 import RacesScreen from './screens/Races'; //Pagina de Corridas
- 
+ import DetailDriver from './screens/DetailDriver'; //Pagina de Detalhe do Piloto
 
 
 const AppNavigator = createStackNavigator(
@@ -26,6 +26,9 @@ const AppNavigator = createStackNavigator(
     },
     Races: {
       screen: RacesScreen,
+    },
+    DetailDrive: {
+      screen: DetailDriver,
     }
   },
   {

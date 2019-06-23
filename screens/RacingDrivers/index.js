@@ -1,10 +1,10 @@
 import React, { Fragment} from 'react';
-import { Container, Content, H1,  Text,  Card, CardItem } from 'native-base';
+import { Container, Content, H1,  Text, Button, Card, CardItem, Body } from 'native-base';
 import { View } from 'react-native';
 import {SafeAreaView} from 'react-navigation';
-import RDrivers from '../../components/RacingDriver';
 
-export default class RacingDrivers extends React.Component {
+
+export default class  RacingDrivers extends React.Component {
 
     state = {
         results: [],
@@ -28,11 +28,13 @@ export default class RacingDrivers extends React.Component {
        let values = [];
        results.map((data) => {
         values.push(
-            <Fragment key={`fragment-${data.givenName}`} >
-                <Card key={'season'}>
-                    <CardItem>
+            <Fragment key={`fragment-${data.driverId}`} >
+                <Card key={'season'} >
+                    <CardItem button onPress={() => this.props.navigation.navigate('DetailDrive', {
+                        dadosPiloto: data,
+                      })} >
                         <Body>
-                            <Text>{data.givenName} {data.familyName}</Text>
+                        <Text>{data.givenName} {data.familyName}</Text>
                         </Body>
                     </CardItem>
                 </Card>
@@ -59,9 +61,11 @@ export default class RacingDrivers extends React.Component {
             <Container>
             <Content >
             <View><Text><H1>{`  Formula 1 - Pilotos`}</H1></Text></View>
+            <SafeAreaView>
                 <View>
                     {this.renderListPilots(this.state.results)}
                 </View>
+                </SafeAreaView>   
             </Content>
         </Container>
             
