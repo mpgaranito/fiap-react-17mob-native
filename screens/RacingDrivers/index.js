@@ -14,15 +14,8 @@ export default class  RacingDrivers extends React.Component {
         this.getData(season);
     }
 
-    lapsList() {
 
-        return this.state.laps.map((data) => {
-          return (
-            <View><Text>{data.time}</Text></View>
-          )
-        })
-    
-    }
+
     renderListPilots(results) {
        console.log(results);
        let values = [];

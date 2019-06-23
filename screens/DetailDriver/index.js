@@ -17,6 +17,7 @@ export default class DetailDriver extends React.Component {
   }
   componentDidMount() {
     const dadospiloto = this.props.navigation.getParam('dadosPiloto');
+    console.info(dadospiloto);
     this.setState({ dadosPiloto: dadospiloto });
     }
 

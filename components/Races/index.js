@@ -5,7 +5,7 @@ import style from './style';
 import { Font } from 'expo';
 import { Ionicons } from '@expo/vector-icons';
 
-class Seasons extends PureComponent {
+class Races extends PureComponent {
     async componentDidMount() {
         await Font.loadAsync({
             'Roboto': require('native-base/Fonts/Roboto.ttf'),
@@ -14,31 +14,16 @@ class Seasons extends PureComponent {
         }); //resolve fonts problems
     }
 
-    renderSeasons() {
-        let items = [];
-        var yearNow= new Date().getFullYear();
-       // console.log(yearNow);
-        for (let year = 2000; year < yearNow; year++) {
-            items.push(
-                <Button iconLeft transparent  dark
-                    onPress={() => this.props.handleParam(year)}
-                    key={`season-${year}`} style={{backgroundColor:'#fff'}}>
-                    <Icon name='information-circle' /> 
-                    <Text>
-                    {year}
-                    </Text>
-                </Button>
-            );
-        }
-        return items;
-    }
+ 
+      
+       
+
     render() {
         return (
             <Container>
                 <Content >
-                <View><Text><H1>Formula 1 - Temporadas</H1></Text></View>
                     <View style={style.container}>
-                        {this.renderSeasons()}
+                        {this.renderListRaces()}
                     </View>
                 </Content>
             </Container>
@@ -46,4 +31,4 @@ class Seasons extends PureComponent {
     }
 }
 
-export default Seasons;
+export default Races;
