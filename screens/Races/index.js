@@ -2,7 +2,7 @@ import React, { Fragment} from 'react';
 import { Container, Content, H1,  Text, Button, Card, CardItem, Body } from 'native-base';
 import { View } from 'react-native';
 import {SafeAreaView} from 'react-navigation';
-
+import Moment from 'moment';
 
 export default class  Races extends React.Component {
 
@@ -23,7 +23,10 @@ export default class  Races extends React.Component {
         })
     
     }*/
+    
+
     renderListRaces(results) {
+      Moment.locale('pt');
        console.log(results);
        let values = [];
        results.map((data) => {
@@ -34,7 +37,7 @@ export default class  Races extends React.Component {
                       dadosCorrida: data,
                       })} >
                         <Body>
-                        <Text>{`${data.raceName} - ${data.date}`}</Text>
+                        <Text>{`${data.raceName} - Data: ${Moment(data.date).format('DD/MM/YYYY')}`}</Text>
                         </Body>
                     </CardItem>
                 </Card>
@@ -55,7 +58,9 @@ export default class  Races extends React.Component {
     }
 
     render() {
-       
+        if (this.state.loading) {
+            return <Expo.AppLoading />;
+          }
 
         return (
             <Container>

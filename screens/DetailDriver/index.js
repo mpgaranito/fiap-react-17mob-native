@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, View,Linking } from 'react-native';
 import {SafeAreaView} from 'react-navigation';
 import { Container, H1,Header, Content, Card, CardItem, Text, Body } from "native-base";
+import Moment from 'moment';
 
 export default class DetailDriver extends React.Component {
 
@@ -34,6 +35,12 @@ export default class DetailDriver extends React.Component {
     this.setState({ loading: false });
   }
     render() {
+      if (this.state.loading) {
+        return <Expo.AppLoading />;
+      }
+
+      
+    Moment.locale('pt');
     if (this.state.loading) {
       return <Expo.AppLoading />;
     }
@@ -45,12 +52,12 @@ export default class DetailDriver extends React.Component {
     <Content padder>
       <Card>
         <CardItem header bordered>
-          <Text>{this.state.dadosPiloto.givenName} {this.state.dadosPiloto.familyName}</Text>
+          <Text>{this.state.dadosPiloto.givenName}  { this.state.dadosPiloto.familyName}</Text>
         </CardItem>
         <CardItem bordered>
           <Body>
            <Text>Origem: {this.state.dadosPiloto.nationality} </Text>
-          <Text>Aniversário: {this.state.dadosPiloto.dateOfBirth}</Text>
+          <Text>Aniversário: {Moment(this.state.dadosPiloto.dateOfBirth).format('DD/MM/YYYY')}</Text>
           </Body>
         </CardItem>
         <CardItem footer bordered>

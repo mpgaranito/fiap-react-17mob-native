@@ -49,6 +49,9 @@ export default class  RacingDrivers extends React.Component {
 
     render() {
        
+        if (this.state.loading) {
+            return <Expo.AppLoading />;
+          }
 
         return (
             <Container>
