@@ -1,53 +1,75 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Fragment} from 'react';
+import { Container, Content, H1,  Text, Button, Card, CardItem, Body } from 'native-base';
+import { View } from 'react-native';
 import {SafeAreaView} from 'react-navigation';
 
 
-
-export default class Races extends React.Component {
+export default class  Races extends React.Component {
 
     state = {
-		season: '',
-	};
+        results: [],
+    };
+    componentDidMount() {
+        const season = this.props.navigation.getParam('season');
+        this.getData(season);
+    }
+/*
+    lapsList() {
 
-  constructor(props) {
-    super(props);
-    this.state = { loading: true };
+        return this.state.laps.map((data) => {
+          return (
+            <View><Text>{data.time}</Text></View>
+          )
+        })
     
-  }
-  
-  componentDidMount() {
-    const season = this.props.navigation.getParam('season');
-    this.setState({ season: season });
+    }*/
+    renderListRaces(results) {
+       console.log(results);
+       let values = [];
+       results.map((data) => {
+        values.push(
+            <Fragment key={`fragment-${data.round}`} >
+                <Card key={'season'} >
+                    <CardItem button onPress={() => this.props.navigation.navigate('DetailRace', {
+                      dadosCorrida: data,
+                      })} >
+                        <Body>
+                        <Text>{`${data.raceName} - ${data.date}`}</Text>
+                        </Body>
+                    </CardItem>
+                </Card>
+            </Fragment>
+        );
+        });
+        return values;
     }
 
-  async componentWillMount() {
-    await Expo.Font.loadAsync({
-      Roboto: require("native-base/Fonts/Roboto.ttf"),
-      Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf"),
-    
-    });
-    this.setState({ loading: false });
-  }
-  
-
-
-
-  render() {
-    if (this.state.loading) {
-      return <Expo.AppLoading />;
+    getData(season) {
+        fetch(`http://ergast.com/api/f1/${season}.json`)
+            .then((response) => response.json())
+            .then((data) => {
+                this.setState({
+                    results: data.MRData.RaceTable.Races,
+                });
+            });
     }
-    return (
-      <SafeAreaView style={styles.container}>
-        <Text>Sou eu  {this.state.season}</Text>
-      </SafeAreaView>
-    );
-  }
+
+    render() {
+       
+
+        return (
+            <Container>
+            <Content >
+            <View><Text><H1>{`  Formula 1 - Corridas`}</H1></Text></View>
+            <SafeAreaView>
+                <View>
+                    {this.renderListRaces(this.state.results)}
+                </View>
+                </SafeAreaView>   
+            </Content>
+        </Container>
+            
+        );
+    }
+
 }
-const styles = StyleSheet.create({
-  container: {
-    flex:1,
-  },
-});
-
-
