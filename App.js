@@ -8,6 +8,8 @@ import {
 
 import HomeScreen from './screens/Home'; //Pagina Home
 import MenuScreen from './screens/Menu'; //Segunda Pagina
+import RacingDriversScreen from './screens/RacingDrivers'; //Pagina de Pilotos
+import RacesScreen from './screens/Races'; //Pagina de Corridas
  
 
 
@@ -18,6 +20,12 @@ const AppNavigator = createStackNavigator(
     },
     Menu: {
       screen: MenuScreen,
+    },
+    Drivers: {
+      screen: RacingDriversScreen,
+    },
+    Races: {
+      screen: RacesScreen,
     }
   },
   {

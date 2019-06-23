@@ -39,7 +39,7 @@ class Seasons extends PureComponent {
         return (
             <Container>
                 <Content >
-                <View><Text><H1>Formula 1 - Temporadas</H1></Text></View>
+                <View><Text><H1>{`  Formula 1 - Temporadas`}</H1></Text></View>
                     <View style={style.container}>
                         {this.renderSeasons()}
                     </View>

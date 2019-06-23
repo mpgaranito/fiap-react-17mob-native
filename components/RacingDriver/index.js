@@ -1,11 +1,11 @@
 import React, { PureComponent} from 'react';
 import { View } from 'react-native';
-import { Container, Content, H1, Button, Icon, Text } from 'native-base';
+import { Container, Content, H1, Button, Icon, Text ,List,ListItem} from 'native-base';
 import style from './style';
 import { Font } from 'expo';
 import { Ionicons } from '@expo/vector-icons';
 
-class Seasons extends PureComponent {
+class RacingDriver extends PureComponent {
     async componentDidMount() {
         await Font.loadAsync({
             'Roboto': require('native-base/Fonts/Roboto.ttf'),
@@ -14,31 +14,18 @@ class Seasons extends PureComponent {
         }); //resolve fonts problems
     }
 
-    renderSeasons() {
-        let items = [];
-        var yearNow= new Date().getFullYear();
+    
+       
        // console.log(yearNow);
-        for (let year = 2000; year < yearNow; year++) {
-            items.push(
-                <Button iconLeft transparent  dark
-                    onPress={() => this.props.handleParam(year)}
-                    key={`season-${year}`} style={{backgroundColor:'#fff'}}>
-                    <Icon name='information-circle' /> 
-                    <Text>
-                    {year}
-                    </Text>
-                </Button>
-            );
-        }
-        return items;
-    }
+       
+   
     render() {
         return (
             <Container>
                 <Content >
-                <View><Text><H1>Formula 1 - Temporadas</H1></Text></View>
+                <View><Text><H1>Formula 1 - Pilotos</H1></Text></View>
                     <View style={style.container}>
-                        {this.renderSeasons()}
+                    <Text>Sou eu Piloto</Text>    
                     </View>
                 </Content>
             </Container>
@@ -46,4 +33,4 @@ class Seasons extends PureComponent {
     }
 }
 
-export default Seasons;
+export default RacingDriver;
