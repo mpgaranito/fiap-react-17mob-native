@@ -39,8 +39,8 @@ export default class DetailDriver extends React.Component {
         return <Expo.AppLoading />;
       }
 
-      
-    Moment.locale('pt');
+
+    Moment.locale('en');
     if (this.state.loading) {
       return <Expo.AppLoading />;
     }

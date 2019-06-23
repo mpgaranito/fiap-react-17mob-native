@@ -26,7 +26,7 @@ export default class  Races extends React.Component {
     
 
     renderListRaces(results) {
-      Moment.locale('pt');
+      Moment.locale('en');
        console.log(results);
        let values = [];
        results.map((data) => {
