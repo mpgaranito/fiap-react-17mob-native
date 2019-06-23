@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Linking, Fragment } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
-import { Container, H1, Header, Content, Card, CardItem, Text, Body } from "native-base";
+import { Container, H1, H2,Header, Content, Card, CardItem, Text, Body } from "native-base";
 
 export default class DetailRace extends React.Component {
 
@@ -47,19 +47,28 @@ export default class DetailRace extends React.Component {
  
   renderListRaces() {
     const t =this.state.results;
-    console.log(t);
+  
     let values = [];
+    if (typeof t !== 'undefined'){ //as vezes vem nulo, e quebra o código, fiz essa segurança marota, foi mal, professor, depois se me ajuda a arrumar isso :(
+      //console.log("Resultados");
+      //console.log(t);
+      t.map((data) => {
+        console.log("data>>>>");
+        console.log(data.Results[0]);
+        var rCorrida = data.Results[0];
     values.push(
-          
             <Card key='20'>
               <CardItem header bordered>
                 <Text>{this.state.dadosCorrida.raceName}</Text>
-                <Text>{`${t.Results.Driver.givenName} ${t.Results.Driver.familyName}`} </Text>
               </CardItem>
               <CardItem bordered>
                 <Body>
-                  <Text>Circuito: {this.state.dadosCorrida.Circuit.circuitName} </Text>
-                  <Text>Local: {this.state.dadosCorrida.Circuit.Location.locality}</Text>
+                <Text><H2>{`Vencedor ${rCorrida.Driver.givenName} ${rCorrida.Driver.familyName}`} </H2></Text> 
+                <Text>{`Voltas: ${rCorrida.laps}`}</Text> 
+                <Text>{`Velocidade Média: ${rCorrida.FastestLap.AverageSpeed.speed} Km/h`}</Text> 
+                <Text>{`Tempo: ${rCorrida.FastestLap.Time.time}`}</Text> 
+                <Text>Circuito: {this.state.dadosCorrida.Circuit.circuitName} </Text>
+                <Text>Local: {this.state.dadosCorrida.Circuit.Location.locality}</Text>
                 </Body>
               </CardItem>
               <CardItem footer bordered>
@@ -68,10 +77,13 @@ export default class DetailRace extends React.Component {
             </Card>
          
           );
+      });
       //console.info(values);
-      return values;
+     
     }
-
+    return values;
+  }
+  
   getData(dadosCorrida) {
     const season = dadosCorrida.season;
     const round = dadosCorrida.round;

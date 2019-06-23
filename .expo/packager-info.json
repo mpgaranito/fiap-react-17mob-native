@@ -1,10 +1,10 @@
 {
-  "expoServerNgrokUrl": "https://s2-wzp.mgaranito.fiap-react-17mob-native.exp.direct",
-  "packagerNgrokUrl": "https://packager.s2-wzp.mgaranito.fiap-react-17mob-native.exp.direct",
-  "ngrokPid": 10120,
-  "devToolsPort": 19003,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null,
+  "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 19388,
+  "packagerPid": 564,
   "webpackServerPort": null
 }
